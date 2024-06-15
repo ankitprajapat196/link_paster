@@ -117,7 +117,7 @@
     function loadVideo() {
       let videoUrl = document.getElementById('videoUrlInput').value;
       let video = document.getElementById('myVideo');
-      video.src = videoUrl;
+      video.src = videoUrl.trim();
     }
 
     function playVideo() {
