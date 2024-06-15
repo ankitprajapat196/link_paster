@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Video Player and Downloader</title>
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    /* Video Player Section */
+    #videoPlayer {
+      max-width: 800px;
+      width: 100%;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #videoPlayer h2 {
+      margin-top: 0;
+      color: #ff6f61;
+      text-align: center;
+    }
+    #myVideo {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+    /* URL Input and Controls */
+    #controls {
+      max-width: 800px;
+      width: 100%;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #controls h2 {
+      margin-top: 0;
+      color: #ff6f61;
+      text-align: center;
+    }
+    #videoUrlInput {
+      width: calc(100% - 40px);
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 10px 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #3e8e41;
+    }
+    @media (min-width: 600px) {
+      #controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #videoUrlInput {
+        width: 60%;
+        margin: 0;
+      }
+      button {
+        margin: 0;
+        width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Video Player Section -->
+  <div id="videoPlayer">
+    <h2>Video Player</h2>
+    <video id="myVideo" width="100%" height="auto" controls>
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- URL Input and Controls -->
+  <div id="controls">
+    <h2>Controls</h2>
+    <input type="text" id="videoUrlInput" placeholder="Paste video URL">
+    <button onclick="loadVideo()">Load</button>
+    <button onclick="playVideo()">Play</button>
+  </div>
+
+  <script>
+    function loadVideo() {
+      let videoUrl = document.getElementById('videoUrlInput').value;
+      let video = document.getElementById('myVideo');
+      video.src = videoUrl;
+    }
+
+    function playVideo() {
+      let video = document.getElementById('myVideo');
+      video.play();
+    }
+  </script>
+</body>
+</html>
